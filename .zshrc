@@ -10,6 +10,9 @@ alias update='sudo apt update && sudo apt -y upgrade'
 alias k="kubectl"
 alias d="docker"
 alias vi="vim"
+alias configgit="git config --global credential.helper cache && git config --global credential.helper 'cache --timeout=3600000'"
+
+configgit
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/talador12/.oh-my-zsh"
