@@ -1,22 +1,21 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$PATH
+# if you come from bash you might have to change your $PATH.
+export PATH=${PATH}:/usr/bin:/usr/local/bin:~/.local/bin
 
 alias repos='cd /mnt/y/Repositories/Github'
 alias python='python3'
 alias python3='python3'
 alias pip='pip3'
-alias pip3='/usr/local/bin/pip3'
 alias getos='cat /etc/os-release'
-
-
-
-
+alias update='sudo apt update && sudo apt -y upgrade'
+alias k="kubectl"
+alias d="docker"
+alias vi="vim"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/talador12/.oh-my-zsh"
 
 ## set colors for LS_COLORS
-eval `dircolors ~/.dircolors`
+# eval `dircolors ~/.dircolors`
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,7 +81,20 @@ ZSH_THEME="norm"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	extract
+	web-search
+	yum
+	git-extras
+	docker
+	vagrant
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	git-flow-completion
+)
+
+ZSH_DISABLE_COMPFIX=true
 
 source $ZSH/oh-my-zsh.sh
 
