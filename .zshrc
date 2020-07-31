@@ -6,7 +6,7 @@ alias python='python3'
 alias python3='python3'
 alias pip='pip3'
 alias pip3='/usr/local/bin/pip3'
-
+alias getos='cat /etc/os-release'
 
 
 
