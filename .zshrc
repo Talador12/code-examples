@@ -10,9 +10,23 @@ alias update='sudo apt update && sudo apt -y upgrade'
 alias k="kubectl"
 alias d="docker"
 alias vi="vim"
-alias configgit="git config --global credential.helper cache && git config --global credential.helper 'cache --timeout=3600000'"
 
+# Usage: remote-tmux foo.example.com
+remote-tmux() {
+  ssh "${1}" -t 'tmux -CC new-session -A -s main'
+}
+
+alias configgit="git config --global credential.helper cache && git config --global credential.helper 'cache --timeout=3600000'"
 configgit
+
+
+
+
+######################################
+######################################
+###      ZSH only below here       ###
+######################################
+######################################
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/talador12/.oh-my-zsh"
@@ -25,6 +39,7 @@ export ZSH="/home/talador12/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="norm"
+# ZSH_THEME="avit"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
