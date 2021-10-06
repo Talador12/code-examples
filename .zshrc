@@ -19,8 +19,17 @@ remote-tmux() {
 alias configgit="git config --global credential.helper cache && git config --global credential.helper 'cache --timeout=3600000'"
 configgit
 
-
-
+setup-cli() {
+	git config --global user.email "talador12@gmail.com"
+	git config --global user.name "Talador12"
+	cd $ZSH_CUSTOM/plugins/
+	curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/asdf/asdf.plugin.zsh >> asdf.plugin.zsh
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+	git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+	git clone https://github.com/bobthecow/git-flow-completion $ZSH_CUSTOM//plugins/git-flow-completion
+	echo -e "# Switch to ZSH shell\nif test -t 1; then\n    exec zsh\nfi\n" >> ~/.bashrc
+}
 
 ######################################
 ######################################
@@ -107,37 +116,18 @@ plugins=(
 	git-extras
 	docker
 	vagrant
+	# customs
+	asdf
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	git-flow-completion
 )
 
 ZSH_DISABLE_COMPFIX=true
-
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
